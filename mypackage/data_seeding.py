@@ -15,7 +15,6 @@ class Generate_Data(Base):
         ini_filename = filename_no_ext + '.ini'
         self.curr_config = configparser.ConfigParser()
         self.curr_config.read(ini_filename)
-
         self.start_date = datetime.datetime.strptime(self.curr_config["data_settings"]["start_date"], '%Y:%m:%d %H:%M:%S')
         self.time_delta = datetime.timedelta(minutes=int(self.curr_config["data_settings"]["time_delta"]))
         self.time_lapse = datetime.timedelta(days=int(self.curr_config["data_settings"]["time_lapse"]))
